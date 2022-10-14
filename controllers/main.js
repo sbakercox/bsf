@@ -9,3 +9,9 @@ exports.getLanding = (req, res) => {
 exports.getDashboard = (req, res) => {
 	res.render('dashboard');
 };
+
+//Pre-Dashboard Page
+//@route GET /predash
+exports.getPredash = (req, res) => {
+	res.render('predash');
+};
