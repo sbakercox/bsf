@@ -3,118 +3,175 @@
 <body>
     <div>
         <h1>Prep Your Profile</h1>
-        <form action="" method="POST">
+        <form action="/predash" method="POST">
             <div>  
             <label for="userName">Username:</label>  
-            <input type="text" id="userName" name="userName" placeholder="Username">  
+            <input type="text" id="userName" name="alias" placeholder="Username">  
+            </div>
+
+            <div>
+              <fieldset>
+                  <legend>Who are you:</legend> 
+                    <input type="radio" id="trainer" name="role" value=0>
+                    <label for="trainer">I'm a Trainer</label>
+              
+                    <input type="radio" id="trainee" name="role" value=1>
+                    <label for="trainee">I'm a Trainee</label>
+              
+                    <input type="radio" id="both" name="role" value=2>
+                    <label for="both">I'm a Trainer & Trainee</label>
+              </fieldset>
             </div>
               
             <div> 
             <label for="userIcon">Profile Image:</label>
             <input type="file"
-                   id="userIcon" name="userIcon"
+                   id="userIcon" name="profileImg"
                    accept="image/png, image/jpeg, image/gif">
             </div>
               
             <div> 
             <label for="beforePic">Your 1st day:</label>
             <input type="file"
-                   id="beforePic" name="beforePic"
+                   id="beforePic" name="initImg"
                    accept="image/png, image/jpeg">
             </div>
+
+            <div>
+              <fieldset>
+                  <legend>Fitness Goal:</legend> 
+                    <input type="radio" id="health" name="fitnessGoal" value=0>
+                    <label for="health">Better General Health</label>
+              
+                    <input type="radio" id="athletics" name="fitnessGoal" value=1>
+                    <label for="athletics">Greater Athletic Performance</label>
+              
+                    <input type="radio" id="strength" name="fitnessGoal" value=2>
+                    <label for="strength">Greater Strength</label>
+                
+                    <input type="radio" id="hypertrophy" name="fitnessGoal" value=3>
+                    <label for="hypertrophy">Better Visual Physique</label>
+              </fieldset>
+            </div>
+
+            <div> 
+              <label for="currentWeight">Current Weight:</label>
+              <input type="number" id="currentWeight" name="currentWeight" placeholder="Weight in Pounds">
+                <span>lbs</span>
+            </div>  
+              
+            <div> 
+              <label for="weightGoal">Goal Weight:</label>
+              <input type="number" id="weightGoal" name="weightGoal" placeholder="Weight in Pounds">
+                <span>lbs</span>
+            </div>
+
+            <div>
+              <fieldset>
+                  <legend>How's your Current Diet?:</legend> 
+                    <input type="radio" id="veryHealthy" name="currentDiet" value=0>
+                    <label for="veryHealthy">Healthy</label>
+              
+                    <input type="radio" id="prettyHealthy" name="currentDiet" value=1>
+                    <label for="prettyHealthy">Kinda Healthy</label>
+              
+                    <input type="radio" id="neutralDiet" name="currentDiet" value=2>
+                    <label for="neutralDiet">Balanced</label>
+                
+                    <input type="radio" id="prettyUnhealthy" name="currentDiet" value=3>
+                    <label for="prettyUnhealthy">Kinda Unhealthy</label>
+
+                    <input type="radio" id="veryUnhealthy" name="currentDiet" value=4>
+                    <label for="veryUnhealthy">Unhealthy</label>
+              </fieldset>
+            </div>
+
+            <div>
+              <fieldset>
+                  <legend>Dietary Goals:</legend> 
+                    <input type="radio" id="gain" name="dietaryGoal" value=0>
+                    <label for="gain">Gain Weight</label>
+              
+                    <input type="radio" id="maintain" name="dietaryGoal" value=1>
+                    <label for="maintain">Maintain Weight</label>
+              
+                    <input type="radio" id="lose" name="dietaryGoal" value=2>
+                    <label for="lose">Lose Weight</label>
+              </fieldset>
+            </div>
+
+            <div>
+              <fieldset>
+                  <legend>Current Activity Level:</legend> 
+                    <input type="radio" id="none" name="activityLevel" value=0>
+                    <label for="none">Not Active</label>
+              
+                    <input type="radio" id="novice" name="activityLevel" value=1>
+                    <label for="novice">Somewhat Active</label>
+              
+                    <input type="radio" id="intermediate" name="activityLevel" value=2>
+                    <label for="intermediate">Fairly Active</label>
+                
+                    <input type="radio" id="expert" name="activityLevel" value=3>
+                    <label for="expert">Very Active</label>
+              </fieldset>
+            </div>
               
             <div>  
-            <fieldset>
-                <legend>Available Days</legend>
-               <input type="checkbox" id="sunday" name="sunday" value="sun">
-                <label for="sunday">Sunday</label>
-                <input type="checkbox" id="monday" name="monday" value="mon">
-                <label for="monday">Monday</label>
-                <input type="checkbox" id="tuesday" name="tuesday" value="tue">
-                <label for="tuesday">Tuesday</label>
-                <input type="checkbox" id="wednesday" name="wednesday" value="wed" />
-                <label for="wednesday">Wednesday</label>
-                <input type="checkbox" id="thursday" name="thursday" value="thu" />
-                <label for="thursday">Thursday</label>
-                 <input type="checkbox" id="friday" name="friday" value="fri" />
-                <label for="mothman">Friday</label>
-                <input type="checkbox" id="saturday" name="saturday" value="sat" />
-                <label for="mothman">Saturday</label>
-            </fieldset>
+              <fieldset>
+                  <legend>Available Days</legend>
+                <input type="checkbox" id="sunday" name="daysAvailable[]" value="sun">
+                  <label for="sunday">Sunday</label>
+
+                  <input type="checkbox" id="monday" name="daysAvailable[]" value="mon">
+                  <label for="monday">Monday</label>
+
+                  <input type="checkbox" id="tuesday" name="daysAvailable[]" value="tue">
+                  <label for="tuesday">Tuesday</label>
+
+                  <input type="checkbox" id="wednesday" name="daysAvailable[]" value="wed" />
+                  <label for="wednesday">Wednesday</label>
+
+                  <input type="checkbox" id="thursday" name="daysAvailable[]" value="thu" />
+                  <label for="thursday">Thursday</label>
+
+                  <input type="checkbox" id="friday" name="daysAvailable[]" value="fri" />
+                  <label for="mothman">Friday</label>
+
+                  <input type="checkbox" id="saturday" name="daysAvailable[]" value="sat" />
+                  <label for="mothman">Saturday</label>
+              </fieldset>
             </div>  
               
             <div>  
-            <fieldset>
-                <legend>Available Times</legend>
-               <input type="checkbox" id="early" name="early" value="veryEarly">
-                <label for="early">Early Morning (<7am)</label>
-                <input type="checkbox" id="morning" name="morning" value="early">
-                <label for="monday">Morning (8am-11am)</label>
-                <input type="checkbox" id="afternoon" name="afternoon" value="mid">
-                <label for="afternoon">Afternoon (12pm-3pm)</label>
-                <input type="checkbox" id="evening" name="evening" value="late" />
-                <label for="evening">Evening(4pm-7pm)</label>
-                <input type="checkbox" id="late" name="late" value="veryLate" />
-                <label for="thursday">Late Night(8pm<)</label>
-            </fieldset>
-            </div> 
-              
-            <div> 
-            <label for="currentWeight">Current Weight:</label>
-            <input type="number" id="currentWeight" name="currentWeight" placeholder="Weight in Pounds">
-              <span>lbs</span>
-            </div>  
-            
-            <div> 
-            <label for="goalWeight">Goal Weight:</label>
-            <input type="number" id="goalWeight" name="goalWeight" placeholder="Weight in Pounds">
-              <span>lbs</span>
-            </div>   
-            
+              <fieldset>
+                  <legend>Available Times</legend>
+                <input type="checkbox" id="early" name="timesAvailable[]" value="veryEarly">
+                  <label for="early">Early Morning (<7am)</label>
+
+                  <input type="checkbox" id="morning" name="timesAvailable[]" value="early">
+                  <label for="monday">Morning (8am-11am)</label>
+
+                  <input type="checkbox" id="afternoon" name="timesAvailable[]" value="mid">
+                  <label for="afternoon">Afternoon (12pm-3pm)</label>
+
+                  <input type="checkbox" id="evening" name="timesAvailable[]" value="late" />
+                  <label for="evening">Evening(4pm-7pm)</label>
+
+                  <input type="checkbox" id="late" name="timesAvailable[]" value="veryLate" />
+                  <label for="thursday">Late Night(8pm<)</label>
+              </fieldset>
+            </div>
+                                      
             <div>
-            <fieldset>
-                <legend>Current Activity Level:</legend> 
-                  <input type="radio" id="none" name="actlvl" value=0>
-                  <label for="none">Not Active</label>
-            
-                  <input type="radio" id="novice" name="actlvl" value=1>
-                  <label for="novice">Somewhat Active</label>
-            
-                  <input type="radio" id="intermediate" name="actlvl" value=2>
-                  <label for="intermediate">Fairly Active</label>
-              
-                  <input type="radio" id="expert" name="actlvl" value=3>
-                  <label for="expert">Very Active</label>
-            </fieldset>
+              <label for="medCon">Medical Concerns:</label>
+              <input type="text" id="medCon" name="medConcerns">
             </div>
               
             <div>
-            <fieldset>
-                <legend>Fitness Goal:</legend> 
-                  <input type="radio" id="health" name="fitgoal" value=0>
-                  <label for="health">Better General Health</label>
-            
-                  <input type="radio" id="athletics" name="fitgoal" value=1>
-                  <label for="athletics">Greater Athletic Performance</label>
-            
-                  <input type="radio" id="strength" name="fitgoal" value=2>
-                  <label for="strength">Greater Strength</label>
-              
-                  <input type="radio" id="hypertrophy" name="fitgoal" value=3>
-                  <label for="hypertrophy">Better Visual Physique</label>
-            </fieldset>
+                <button>Submit</button>
             </div>
-              
-            <div>
-             <label for="medCon">Medical Concerns:</label>
-            
-            <input type="text" id="medCon" name="medCon">
-            </div>
-              
-            <div>
-              <button>Submit</button>
-            </div>
-            </form>
+        </form>
     </div>     
 </body>
 </html>

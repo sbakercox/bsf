@@ -18,6 +18,8 @@ router.get('/login',ensureGuest, authCon.getLogin);
 //@route GET /dashboard
 router.get('/dashboard',firstTimeUser ,ensureAuth, mainCon.getDashboard);
 
+//Pre-Dashboard Page
+//@route GET /predash
 router.get('/predash', mainCon.getPredash);
 
 module.exports = router
