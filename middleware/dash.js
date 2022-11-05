@@ -1,9 +1,10 @@
 const User = require("../models/User");
+const Profile = require('../models/Profile');
 module.exports = {
     firstTimeUser: async (req, res, next) => {
         try {
-            const profState = await User.find({profile: req.user.profile});
-            if (profState[0].profile == true ) {
+            let profState = await User.findOne({_id: req.user._id});
+            if (profState.profile == true ) {
                 return next();
               } else {
                 res.redirect('/predash');
