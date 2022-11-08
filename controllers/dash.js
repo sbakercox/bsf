@@ -43,7 +43,7 @@ exports.createProfile = async (req, res, next) => {
         console.log('Profile created');
       await User.findOneAndUpdate({_id: req.user._id}, {profile: true});
         console.log('Account Updated');
-      res.redirect('dash/home')
+      res.redirect('home')
       }
       catch (err) {
         console.log(err);
