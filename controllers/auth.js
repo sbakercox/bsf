@@ -1,5 +1,7 @@
+const session = require('express-session')
+
 //Login Page
-//@route GET /login
+//@route GET /auth/login
 exports.getLogin = (req, res) => {
 	res.render('login');
 };

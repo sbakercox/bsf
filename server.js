@@ -59,6 +59,7 @@ app.use(express.static("public"));
 //ROUTES
 app.use('/', require('./routes/main'))
 app.use('/auth', require('./routes/auth'))
+app.use('/dash', require('./routes/dash'))
 
 //CHECK PORT
 app.listen(PORT, () => {

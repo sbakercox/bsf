@@ -1,12 +1,20 @@
-// const express = require('express')
-// const router = express.Router()
-// const mainCon = require('../controllers/main');
-// const dashCon = require('../controllers/dash');
+const express = require('express')
+const router = express.Router()
+const dashCon = require('../controllers/dash');
+const { ensureAuth, ensureGuest } = require('../middleware/auth')
+const {firstTimeUser} = require('../middleware/dash')
 
 
-// //Create User Profile
-// //@route POST '/predash'
-// router.post('/predash', dashCon.createProfile);
+//Dashboard Page
+//@route GET /dash/home
+router.get('/home',firstTimeUser ,ensureAuth, dashCon.getDashHome);
 
+//Pre-Dashboard Page
+//@route GET /dash/profile
+router.get('/profile', dashCon.getDashProfile);
 
-// module.exports = router
+//Create User Profile
+//@route POST /dash/profile
+router.post('/dash/profile', dashCon.createProfile);
+
+module.exports = router

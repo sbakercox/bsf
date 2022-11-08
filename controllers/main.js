@@ -3,15 +3,3 @@
 exports.getLanding = (req, res) => {
 	res.render('landing');
 };
-
-//Dashboard Page
-//@route GET /dashboard
-exports.getDashboard = (req, res) => {
-	res.render('dashboard');
-};
-
-//Pre-Dashboard Page
-//@route GET /predash
-exports.getPredash = (req, res) => {
-	res.render('predash');
-};

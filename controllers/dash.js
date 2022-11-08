@@ -3,8 +3,20 @@ const mongoose = require('mongoose')
 const Profile = require('../models/Profile')
 const User = require('../models/User')
 
+//Dashboard Page
+//@route GET /dash/home
+exports.getDashHome = (req, res) => {
+	res.render('home');
+};
+
+//Pre-Dashboard Page
+//@route GET /dash/profile
+exports.getDashProfile = (req, res) => {
+	res.render('profile');
+};
+
 //Create User Profile
-//@route POST '/predash'
+//@route POST /dash/profile
 exports.createProfile = async (req, res, next) => {
       try {
     // Upload image to cloudinary
@@ -31,7 +43,7 @@ exports.createProfile = async (req, res, next) => {
         console.log('Profile created');
       await User.findOneAndUpdate({_id: req.user._id}, {profile: true});
         console.log('Account Updated');
-      res.redirect('/dashboard')
+      res.redirect('dash/home')
       }
       catch (err) {
         console.log(err);
