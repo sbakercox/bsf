@@ -20,16 +20,17 @@ exports.getDashProfile = (req, res) => {
 exports.createProfile = async (req, res, next) => {
       try {
     // Upload image to cloudinary
-    //   let cloudProfImg = await cin.uploader.upload(req.body.profileImg);  
-    //   let cloudInitImg = await cin.uploader.upload(req.body.initImg); 
+      let cloudProfImg = await cin.uploader.upload(req.body.profileImg);  
+      let cloudInitImg = await cin.uploader.upload(req.body.initImg); 
+      console.log(req)
       await Profile.create({
         user: req.user._id,
         alias:req.body.alias,
         role: req.body.role,
-        profileImg: req.body.profileImg,
-        // profileImgId: cloudProfImg.public_id,
-        initImg: req.body.initImg,
-        // initImgId: cloudInitImg.public_id,
+        profileImg: cloudProfImg.secure_url,
+        profileImgId: cloudProfImg.public_id,
+        initImg: cloudInitImg.secure_url,
+        initImgId: cloudInitImg.public_id,
         fitnessGoal: req.body.fitnessGoal,
         currentWeight: req.body.currentWeight,
         weightGoal: req.body.weightGoal,
@@ -43,7 +44,7 @@ exports.createProfile = async (req, res, next) => {
         console.log('Profile created');
       await User.findOneAndUpdate({_id: req.user._id}, {profile: true});
         console.log('Account Updated');
-      res.redirect('home')
+      res.redirect(`home`)
       }
       catch (err) {
         console.log(err);
