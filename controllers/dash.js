@@ -1,4 +1,4 @@
-const cin = require("../middleware/cloud");
+const cloud = require("../middleware/cloud");
 const mongoose = require('mongoose')
 const Profile = require('../models/Profile')
 const User = require('../models/User')
@@ -18,11 +18,13 @@ exports.getDashProfile = (req, res) => {
 //Create User Profile
 //@route POST /dash/profile
 exports.createProfile = async (req, res, next) => {
+      console.log(req.body)
+      console.log(req.file)
+      console.log(req.files)
       try {
     // Upload image to cloudinary
-      let cloudProfImg = await cin.uploader.upload(req.body.profileImg);  
-      let cloudInitImg = await cin.uploader.upload(req.body.initImg); 
-      console.log(req)
+      let cloudProfImg = await cloud.uploader.upload(req.files.profileImg[0].path,{folder:'/BSF'});  
+      let cloudInitImg = await cloud.uploader.upload(req.files.initImg[0].path,{folder: '/BSF'}); 
       await Profile.create({
         user: req.user._id,
         alias:req.body.alias,
