@@ -14,8 +14,4 @@ exports.logout = (req, res) => {
 		console.log("User has logged out.");
 		res.redirect("/");
 	});
-	// req.session.destroy((err) => {
-	// 	if (err) { return next(err); }
-	// 	req.user = null;
-	// });
 };
